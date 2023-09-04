@@ -71,58 +71,156 @@ describe('Cadastro do Cliente', () => {
     cy.visit('http://localhost:3000/')
     cy.get("[name='login_button']").click()
     cy.get("[name='cadastrar_button']").click()
+
+    //Cadastrar Cliente
+        //Cadastrar Dados Pessoais
     cy.get("[name='nome_input']").type("Cliente Teste Auto")
     cy.get("[name='cpf_input']").type("111111111111")
     cy.get("[name='genero_input']").type("Maculino")
     cy.get("[name='data_nacimento_input']").type("2001-01-01")
+        //Cadastrar Meios de Contatos
     cy.get("[name='email_input']").type("clientetesteauto@mail.com")
     cy.get("[name='tipo_tel_input1']").type("Celelar")
     cy.get("[name='ddd_tel_input1']").type("111")
     cy.get("[name='numero_tel_input1']").type("11111111111")
+        //Cadastrar Endereço
     cy.get("[name='nome_end_input1']").type("Casa")
     cy.get("[name='cep_end_input1']").type("11111111111")
     cy.get("[name='pais_end_input1']").type("Brasil")
     cy.get("[name='estado_end_input1']").type("SP")
     cy.get("[name='cidade_end_input1']").type("Mogi das Cruzes")
-    cy.get("[name='bairro_end_input1']").type("Rua")
-    cy.get("[name='tipo_logradouro_end_input1']").type("Teste Auto")
-    cy.get("[name='logradouro_end_input1']").type("Brasil")
+    cy.get("[name='bairro_end_input1']").type("Vila Teste")
+    cy.get("[name='tipo_logradouro_end_input1']").type("Rua")
+    cy.get("[name='logradouro_end_input1']").type("Teste Auto")
     cy.get("[name='numero_end_input1']").type("1")
     cy.get("[name='tipo_end_input1']").type("Casa")
     cy.get("[name='observacao_end_input1']").type("Nenhuma")
+        //Cadastrar Cartão
     cy.get("[name='bandeira_car_select1']").select(1)
     cy.get("[name='nome_car_input1']").type("Cliente Teste Auto")
     cy.get("[name='numero_car_input1']").type("1111111111111")
     cy.get("[name='data_vencimento_car_input1']").type("2030-01")
     cy.get("[name='codigo_seguranca_car_input1']").type("111")
+        //Cadastrar Senha
     cy.get("[name='senha_input']").type("Auto123-")
     cy.get("[name='confimar_senha_input']").type("Auto123-")
-    cy.get("button").contains("Cadastrar").click()
+        //Salvar
+    cy.get("[name='cadastrar_button']").click()
 
-    
+    //Efetuar Login
+    cy.location("pathname").should("equal","/login")
     cy.get("[name='email_input']").type("clientetesteauto@mail.com")
     cy.get("[name='senha_input']").type("Auto123-")
     cy.get("[name='entrar_button']").click()
 
+    //Acessar Menu Cliente
     cy.get("[name='login_button']").click()
     cy.get("[name='menu_login_button']").click()
 
+    //Alterar Cliente
     cy.get("[name='meus_dados_button']").click()
+        //Alerar Dados Pessoais
     cy.get("[name='editar_dados_pessoal_button']").click()
-
     cy.get("[name='nome_input']").clear()
     cy.get("[name='nome_input']").type("Cliente Alterar Teste")
-
     cy.get("[name='cpf_input']").clear()
     cy.get("[name='cpf_input']").type("222222222")
-
     cy.get("[name='genero_input']").clear()
     cy.get("[name='genero_input']").type("MASCULINO")
+    cy.get("[name='data_nascimento_input']").clear()
+    cy.get("[name='data_nascimento_input']").type("1987-04-05")
+    cy.get("[name='salvar_dados_button']").click()
+        //Alterar Telefone
+    cy.get("[name='editar_tel_button1']").click()
+    cy.get("[name='tipo_tel_input']").clear()
+    cy.get("[name='tipo_tel_input']").type("Fixo")
+    cy.get("[name='ddd_tel_input']").clear()
+    cy.get("[name='ddd_tel_input']").type("022")
+    cy.get("[name='numero_tel_input']").clear()
+    cy.get("[name='numero_tel_input']").type("22222222")
+    cy.get("[name='salvar_tel_button']").click()
+        //Alterar Endereço
+    cy.get("[name='editar_end_button1']").click()
+    cy.get("[name='nome_end_input']").clear()
+    cy.get("[name='nome_end_input']").type("Trabalho")
+    cy.get("[name='cep_end_input']").clear()
+    cy.get("[name='cep_end_input']").type("2222222222222")
+    cy.get("[name='pais_end_input']").clear()
+    cy.get("[name='pais_end_input']").type("Brazil")
+    cy.get("[name='estado_end_input']").clear()
+    cy.get("[name='estado_end_input']").type("São Paulo")
+    cy.get("[name='cidade_end_input']").clear()
+    cy.get("[name='cidade_end_input']").type("Mogi Das Cruzes")
+    cy.get("[name='bairro_end_input']").clear()
+    cy.get("[name='bairro_end_input']").type("Auto Teste")
+    cy.get("[name='tipo_logradouro_end_input']").clear()
+    cy.get("[name='tipo_logradouro_end_input']").type("Av")
+    cy.get("[name='logradouro_end_input']").clear()
+    cy.get("[name='logradouro_end_input']").type("Do Meu Trabalho")
+    cy.get("[name='numero_end_input']").clear()
+    cy.get("[name='numero_end_input']").type("2")
+    cy.get("[name='tipo_end_input']").clear()
+    cy.get("[name='tipo_end_input']").type("Edificio")
+    cy.get("[name='observacao_end_input']").clear()
+    cy.get("[name='observacao_end_input']").type("Onde eu Trabalho")
+    cy.get("[name='salvar_end_button']").click()
+        //Alterar Cartão
+    cy.get("[name='editar_car_button1']").click()
+    cy.get("[name='bandeira_car_select']").select(0)
+    cy.get("[name='nome_car_input']").clear()
+    cy.get("[name='nome_car_input']").type("Cliente Alterar Teste")
+    cy.get("[name='numero_car_input']").clear()
+    cy.get("[name='numero_car_input']").type("222222222222")
+    cy.get("[name='data_validade_car_input']").clear()
+    cy.get("[name='data_validade_car_input']").type("2050-06")
+    cy.get("[name='codigo_seguranca_car_input']").clear()
+    cy.get("[name='codigo_seguranca_car_input']").type("222")
+    cy.get("[name='salvar_car_button']").click()
+        //Alterar Senha
+    cy.get("[name='alterar_senha_button']").click()
+    cy.get("[name='senha_input']").clear()
+    cy.get("[name='senha_input']").type("Alterar123-")
+    cy.get("[name='confimar_senha_input']").type("Alterar123-")
+    cy.get("[name='confimar_button']").click()
 
+    //Logout
+    cy.get("[name='login_button']").click()
+    cy.get("[name='sair_login_button']").click()
+    
+    //Efetuar Login Como Admin
+    cy.get("[name='login_button']").click()
+    cy.location("pathname").should("equal","/login")
+    cy.get("[name='email_input']").type("admin@mail.com")
+    cy.get("[name='senha_input']").type("admin123")
+    cy.get("[name='entrar_button']").click()
 
-    cy.get("[name='data_nacimemto_input']").clear()
-    cy.get("[name='data_nacimemto_input']").type("1987-04-05")
+    //Procurar Cliente
+    cy.get("[name='clientes_menu_button']").click()
+    cy.get("[name='pesquisa_input1']").type("Cliente Alterar Teste")
+    cy.get("[name='pesquisar_button']").click()
 
+    //Editar Cliente pelo Adim
+    cy.get("[name='mostrar_detalhes_button1']").click()
+    cy.get("[name='editar_button1']").click()
+    cy.get("[name='editar_dados_pessoal_button']").click()
+    cy.get("[name='nome_input']").clear()
+    cy.get("[name='nome_input']").type("Cliente Alterar Admin")
+    cy.get("[name='salvar_dados_button']").click()
+
+    //Procurar Cliente
+    cy.get("[name='clientes_menu_button']").click()
+    cy.get("[name='pesquisa_input1']").type("Cliente Alterar Admin")
+    cy.get("[name='pesquisar_button']").click()
+
+    //Deletar Cliente
+    cy.get("[name='deletar_button1']").click()
+    cy.get("[name='pesquisar_button']").click()
+    /*
+    cy.get("[name='']").click()
+    cy.get("[name='']").type("")
+    cy.get("[name='']").clear()
+
+    */
 
 
 
