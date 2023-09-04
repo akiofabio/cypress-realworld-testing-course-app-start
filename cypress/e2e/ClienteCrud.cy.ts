@@ -70,7 +70,6 @@ describe('Cadastro do Cliente', () => {
   it.only('Fluxo Normal', () => {
     cy.visit('http://localhost:3000/')
     cy.get("[name='login_button']").click()
-    
     cy.get("[name='cadastrar_button']").click()
     cy.get("[name='nome_input']").type("Cliente Teste Auto")
     cy.get("[name='cpf_input']").type("111111111111")
@@ -109,6 +108,23 @@ describe('Cadastro do Cliente', () => {
     cy.get("[name='menu_login_button']").click()
 
     cy.get("[name='meus_dados_button']").click()
+    cy.get("[name='editar_dados_pessoal_button']").click()
+
+    cy.get("[name='nome_input']").clear()
+    cy.get("[name='nome_input']").type("Cliente Alterar Teste")
+
+    cy.get("[name='cpf_input']").clear()
+    cy.get("[name='cpf_input']").type("222222222")
+
+    cy.get("[name='genero_input']").clear()
+    cy.get("[name='genero_input']").type("MASCULINO")
+
+
+    cy.get("[name='data_nacimemto_input']").clear()
+    cy.get("[name='data_nacimemto_input']").type("1987-04-05")
+
+
+
 
   })
 })
