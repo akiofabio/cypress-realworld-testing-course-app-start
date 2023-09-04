@@ -1,5 +1,5 @@
 describe('Cadastro do Cliente', () => {
-  it.only('Fluxo Sem Enderço de Entrega', () => {
+  it('Fluxo Sem Enderço de Entrega', () => {
     cy.visit('http://localhost:3000/')
     cy.get("button").eq(1).click()
     cy.get("button").eq(4).click()
@@ -31,13 +31,47 @@ describe('Cadastro do Cliente', () => {
     cy.get("[name='senha_input']").type("Auto123-")
     cy.get("[name='confimar_senha_input']").type("Auto123-")
     cy.get("button").contains("Cadastrar").click()
-    
   })
   
-  it('Fluxo Normal', () => {
+  it('Fluxo Sem Enderço de Cobrança', () => {
     cy.visit('http://localhost:3000/')
-    cy.get("button").eq(1).click()
-    cy.get("button").eq(4).click()
+    cy.get("[name='login_button']").click()
+    cy.get("[name='cadastrar_button']").click()
+    cy.get("[name='nome_input']").type("Cliente Teste Auto")
+    cy.get("[name='cpf_input']").type("111111111111")
+    cy.get("[name='genero_input']").type("Maculino")
+    cy.get("[name='data_nacimento_input']").type("2001-01-01")
+    cy.get("[name='email_input']").type("clientetesteauto@mail.com")
+    cy.get("[name='tipo_tel_input1']").type("Celelar")
+    cy.get("[name='ddd_tel_input1']").type("111")
+    cy.get("[name='numero_tel_input1']").type("11111111111")
+    cy.get("[name='nome_end_input1']").type("Casa")
+    cy.get("[name='cep_end_input1']").type("11111111111")
+    cy.get("[name='pais_end_input1']").type("Brasil")
+    cy.get("[name='estado_end_input1']").type("SP")
+    cy.get("[name='cidade_end_input1']").type("Mogi das Cruzes")
+    cy.get("[name='bairro_end_input1']").type("Rua")
+    cy.get("[name='tipo_logradouro_end_input1']").type("Teste Auto")
+    cy.get("[name='logradouro_end_input1']").type("Brasil")
+    cy.get("[name='numero_end_input1']").type("1")
+    cy.get("[name='tipo_end_input1']").type("Casa")
+    cy.get("[name='observacao_end_input1']").type("Nenhuma")
+    cy.get("[name='cobranca_end_input1']").click()
+    cy.get("[name='bandeira_car_select1']").select(1)
+    cy.get("[name='nome_car_input1']").type("Cliente Teste Auto")
+    cy.get("[name='numero_car_input1']").type("1111111111111")
+    cy.get("[name='data_vencimento_car_input1']").type("2030-01")
+    cy.get("[name='codigo_seguranca_car_input1']").type("111")
+    cy.get("[name='senha_input']").type("Auto123-")
+    cy.get("[name='confimar_senha_input']").type("Auto123-")
+    cy.get("button").contains("Cadastrar").click()
+  })
+
+  it.only('Fluxo Normal', () => {
+    cy.visit('http://localhost:3000/')
+    cy.get("[name='login_button']").click()
+    
+    cy.get("[name='cadastrar_button']").click()
     cy.get("[name='nome_input']").type("Cliente Teste Auto")
     cy.get("[name='cpf_input']").type("111111111111")
     cy.get("[name='genero_input']").type("Maculino")
@@ -65,6 +99,16 @@ describe('Cadastro do Cliente', () => {
     cy.get("[name='senha_input']").type("Auto123-")
     cy.get("[name='confimar_senha_input']").type("Auto123-")
     cy.get("button").contains("Cadastrar").click()
+
+    
+    cy.get("[name='email_input']").type("clientetesteauto@mail.com")
+    cy.get("[name='senha_input']").type("Auto123-")
+    cy.get("[name='entrar_button']").click()
+
+    cy.get("[name='login_button']").click()
+    cy.get("[name='menu_login_button']").click()
+
+    cy.get("[name='meus_dados_button']").click()
 
   })
 })
