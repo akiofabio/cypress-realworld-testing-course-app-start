@@ -46,6 +46,39 @@ describe('Fluxo de Compra', () => {
     cy.get("[name='salvar_end_button']").click()
     cy.get("[name='escolher_end_button2']").click()
 
+    //Cartão de Credito
+    cy.get("[name='valor_car_input0']").type("1000")
+
+    //Cupom Promocional
+    cy.get("[name='add_cupom_promo_button']").click()
+    cy.get("[name='escolher_cupom_promo_button0']").click()
+
+    //Cupom Promocional
+    cy.get("[name='add_cupom_troca_button']").click()
+    cy.get("[name='escolher_cupom_troca_button0']").click()
+
+    //Novo Cartão de Credito
+    cy.get("[name='add_car_button']").click()
+    cy.get("[name='escolher_novo_car_button']").click()
+    cy.get("[name='bandeira_car_select']").select(0)
+    cy.get("[name='nome_car_input']").clear()
+    cy.get("[name='nome_car_input']").type("Cliente Alterar Teste")
+    cy.get("[name='numero_car_input']").clear()
+    cy.get("[name='numero_car_input']").type("222222222222")
+    cy.get("[name='data_validade_car_input']").clear()
+    cy.get("[name='data_validade_car_input']").type("2050-06")
+    cy.get("[name='codigo_seguranca_car_input']").clear()
+    cy.get("[name='codigo_seguranca_car_input']").type("222")
+    cy.get("[name='salvar_car_button']").click()
+    cy.get("[name='escolher_car_button1']").click()
+    cy.get("[name='interar_valor_car_button1']").click()
+
+    cy.get("[name='finalizar_button']").click()
+
+    //Acessar Menu Cliente
+    cy.get("[name='login_button']").click()
+    cy.get("[name='menu_login_button']").click()
+    cy.get("[name='meus_pedidos_button']").click()
     /*
     cy.visit('')
     cy.get("[name='']").click()
