@@ -28,6 +28,24 @@ describe('Fluxo de Compra', () => {
     cy.get("[name='entrar_button']").click()
 
     cy.get("[name='finalizar_button']").click()
+    
+    //Novo Endereço
+    cy.get("[name='mostrar_end_button']").click()
+    cy.get("[name='escolher_novo_end_button']").click()
+    cy.get("[name='nome_end_input']").type("Trabalho")
+    cy.get("[name='cep_end_input']").type("2222222222222")
+    cy.get("[name='pais_end_input']").type("Brazil")
+    cy.get("[name='estado_end_input']").type("São Paulo")
+    cy.get("[name='cidade_end_input']").type("Mogi Das Cruzes")
+    cy.get("[name='bairro_end_input']").type("Auto Teste")
+    cy.get("[name='tipo_logradouro_end_input']").type("Av")
+    cy.get("[name='logradouro_end_input']").type("Do Meu Trabalho")
+    cy.get("[name='numero_end_input']").type("2")
+    cy.get("[name='tipo_end_input']").type("Edificio")
+    cy.get("[name='observacao_end_input']").type("Onde eu Trabalho")
+    cy.get("[name='salvar_end_button']").click()
+    cy.get("[name='escolher_end_button2']").click()
+
     /*
     cy.visit('')
     cy.get("[name='']").click()
