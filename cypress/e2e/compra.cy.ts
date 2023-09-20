@@ -18,7 +18,7 @@ describe('Fluxo de Compra', () => {
     cy.get("[name='home_button']").click()
     cy.get("[name='add_produto_des_car_button2']").click()
     cy.get("[name='quantidade_input0']").clear()
-    cy.get("[name='quantidade_input0']").type("2")
+    cy.get("[name='quantidade_input0']").type("6")
     cy.get("[name='finalizar_button']").click()
 
     //Efetuar Login
