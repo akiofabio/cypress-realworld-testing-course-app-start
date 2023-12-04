@@ -53,7 +53,7 @@ describe('Fluxo de Compra', () => {
     cy.get("[name='add_cupom_promo_button']").click()
     cy.get("[name='escolher_cupom_promo_button0']").click()
 
-    //Cupom Promocional
+    //Cupom Troca
     cy.get("[name='add_cupom_troca_button']").click()
     cy.get("[name='escolher_cupom_troca_button0']").click()
 
