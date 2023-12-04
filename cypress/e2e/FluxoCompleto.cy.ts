@@ -30,6 +30,7 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='entrar_button']").click()
 
     //Checkout
+    cy.location("pathname").should("equal","/carrinho")
     cy.get("[name='finalizar_button']").click()
 
     //Cartão de Credito
@@ -43,16 +44,14 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='sair_login_button']").click()
     
     //Efetuar Login do Admin
+    cy.get("[name='login_button']").click()
     cy.location("pathname").should("equal","/login")
-    cy.get("[name='menu_login_button']").click()
     cy.get("[name='email_input']").type("admin@mail.com")
     cy.get("[name='senha_input']").type("admin123")
     cy.get("[name='entrar_button']").click()
 
-    //Acessar Menu Pedido
-    cy.get("[name='pedidos_menu_button']").click()
-
     //Aprovar Pedido
+    cy.get("[name='pedidos_menu_button']").click()
     cy.get("[name='acao_sucesso_button0']").click()
     cy.get("[name='acao_sucesso_button0']").click()
     cy.get("[name='acao_sucesso_button0']").click()
@@ -71,7 +70,6 @@ describe('Fluxo de Completo', () => {
     
     //Devolver Pedido na Area do CLiente
     cy.get("[name='login_button']").click()
-    cy.get("[name='menu_login_button']").click()
     cy.get("[name='meus_pedidos_button']").click()
     cy.get("[name='devolver_pedido_parcial_button']").click()
     cy.get("[name='quantidade_input']").clear()
@@ -79,8 +77,57 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='quantidade_input1']").type("1")
     cy.get("[name='confimar_button']").click()
     
-    //
+    //Logout Cliente
+    cy.get("[name='login_button']").click()
+    cy.get("[name='sair_login_button']").click()
     
+    //Efetuar Login do Admin
+    
+    cy.get("[name='login_button']").click()
+    cy.location("pathname").should("equal","/login")
+    cy.get("[name='email_input']").type("admin@mail.com")
+    cy.get("[name='senha_input']").type("admin123")
+    cy.get("[name='entrar_button']").click()
+
+     //Aprovar Troca
+     cy.get("[name='pedidos_menu_button']").click()
+     cy.get("[name='acao_sucesso_button0']").click()
+     cy.get("[name='acao_sucesso_button0']").click()
+
+     //Logout Admin
+    cy.get("[name='login_button']").click()
+    cy.get("[name='sair_login_button']").click()
+
+    //Efetuar Login Cliente
+    cy.get("[name='login_button']").click()
+    cy.location("pathname").should("equal","/login")
+    cy.get("[name='email_input']").type("cliente1@mail.com")
+    cy.get("[name='senha_input']").type("Senha01-")
+    cy.get("[name='entrar_button']").click()
+
+    //Adionar Produto no Carrinho
+    cy.get("[name='add_produto_des_car_button5']").click()
+    cy.get("[name='quantidade_input2']").clear()
+    cy.get("[name='quantidade_input2']").type("5")
+    cy.get("[name='finalizar_button']").click()
+
+    //Checkout
+    cy.get("[name='finalizar_button']").click()
+
+    //Adicionar Cupom de Troca
+    cy.get("[name='add_cupom_troca_button']").click()
+    cy.get("[name='escolher_cupom_troca_button0']").click()
+
+    //Cartão de Credito
+    cy.get("[name='valor_car_input0']").clear()
+    cy.get("[name=''valor_car_input0]").type("1000")
+    cy.get("[name='add_car_button']").click()
+    cy.get("[name='escolher_car_button0']").click()
+    cy.get("[name='interar_valor_car_button1']").click()
+    
+    //Filanlizar Compra
+    cy.get("[name='finalizar_button']").click()
+
     /*
     cy.visit('')
     cy.get("[name='']").click()
