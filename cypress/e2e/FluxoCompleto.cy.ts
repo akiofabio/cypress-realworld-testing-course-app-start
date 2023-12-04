@@ -120,8 +120,7 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='quantidade_input0']").clear()
     cy.wait(500)
     cy.get("[name='quantidade_input0']").type("1")
-    cy.get("[name='finalizar_button']").click()
-
+    
     //Checkout
     cy.get("[name='finalizar_button']").click()
 
