@@ -16,7 +16,6 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='add_produto_des_car_button2']").click()
     cy.get("[name='quantidade_input1']").clear()
     cy.get("[name='quantidade_input1']").type("6")
-    cy.get("[name='finalizar_button']").click()
     cy.get("[name='home_button']").click()
     cy.get("[name='add_produto_des_car_button5']").click()
     cy.get("[name='quantidade_input2']").clear()
@@ -31,9 +30,11 @@ describe('Fluxo de Completo', () => {
 
     //Checkout
     cy.location("pathname").should("equal","/carrinho")
+    cy.wait(200)
     cy.get("[name='finalizar_button']").click()
 
     //Cartão de Credito
+    cy.wait(200)
     cy.get("[name='interar_valor_car_button0']").click()
     
     //Filanlizar Compra
@@ -53,8 +54,11 @@ describe('Fluxo de Completo', () => {
     //Aprovar Pedido
     cy.get("[name='pedidos_menu_button']").click()
     cy.get("[name='pedido_aprovado_button0']").click()
+    cy.wait(300)
     cy.get("[name='pedido_em_preparo_button0']").click()
+    cy.wait(300)
     cy.get("[name='pedido_enviado_button0']").click()
+    cy.wait(300)
     cy.get("[name='pedido_entregue_button0']").click()
 
     //Logout Admin
@@ -77,6 +81,8 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='quantidade_input0']").type("1")
     cy.get("[name='quantidade_input1']").clear()
     cy.get("[name='quantidade_input1']").type("1")
+    cy.get("[name='quantidade_input2']").clear()
+    cy.get("[name='quantidade_input2']").type("0")
     cy.get("[name='confimar_button']").click()
     
     //Logout Cliente
@@ -108,9 +114,12 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='entrar_button']").click()
 
     //Adionar Produto no Carrinho
+
     cy.get("[name='add_produto_des_car_button0']").click()
+    cy.wait(500)
     cy.get("[name='quantidade_input0']").clear()
-    cy.get("[name='quantidade_input0']").type("10")
+    cy.wait(500)
+    cy.get("[name='quantidade_input0']").type("9")
     cy.get("[name='finalizar_button']").click()
 
     //Checkout
