@@ -52,10 +52,10 @@ describe('Fluxo de Completo', () => {
 
     //Aprovar Pedido
     cy.get("[name='pedidos_menu_button']").click()
-    cy.get("[name='acao_sucesso_button0']").click()
-    cy.get("[name='acao_sucesso_button0']").click()
-    cy.get("[name='acao_sucesso_button0']").click()
-    cy.get("[name='acao_sucesso_button0']").click()
+    cy.get("[name='pedido_aprovado_button0']").click()
+    cy.get("[name='pedido_em_preparo_button0']").click()
+    cy.get("[name='pedido_enviado_button0']").click()
+    cy.get("[name='pedido_entregue_button0']").click()
 
     //Logout Admin
     cy.get("[name='login_button']").click()
@@ -70,10 +70,12 @@ describe('Fluxo de Completo', () => {
     
     //Devolver Pedido na Area do CLiente
     cy.get("[name='login_button']").click()
+    cy.get("[name='menu_login_button']").click()
     cy.get("[name='meus_pedidos_button']").click()
-    cy.get("[name='devolver_pedido_parcial_button']").click()
-    cy.get("[name='quantidade_input']").clear()
+    cy.get("[name='devolver_pedido_parcial_button0']").click()
+    cy.get("[name='quantidade_input0']").clear()
     cy.get("[name='quantidade_input0']").type("1")
+    cy.get("[name='quantidade_input1']").clear()
     cy.get("[name='quantidade_input1']").type("1")
     cy.get("[name='confimar_button']").click()
     
@@ -91,8 +93,8 @@ describe('Fluxo de Completo', () => {
 
      //Aprovar Troca
      cy.get("[name='pedidos_menu_button']").click()
-     cy.get("[name='acao_sucesso_button0']").click()
-     cy.get("[name='acao_sucesso_button0']").click()
+     cy.get("[name='troca_pacial_aprovada_button0']").click()
+     cy.get("[name='trocado_parcialmente_button0']").click()
 
      //Logout Admin
     cy.get("[name='login_button']").click()
@@ -106,9 +108,9 @@ describe('Fluxo de Completo', () => {
     cy.get("[name='entrar_button']").click()
 
     //Adionar Produto no Carrinho
-    cy.get("[name='add_produto_des_car_button5']").click()
-    cy.get("[name='quantidade_input2']").clear()
-    cy.get("[name='quantidade_input2']").type("5")
+    cy.get("[name='add_produto_des_car_button0']").click()
+    cy.get("[name='quantidade_input0']").clear()
+    cy.get("[name='quantidade_input0']").type("10")
     cy.get("[name='finalizar_button']").click()
 
     //Checkout
@@ -120,7 +122,7 @@ describe('Fluxo de Completo', () => {
 
     //Cartão de Credito
     cy.get("[name='valor_car_input0']").clear()
-    cy.get("[name=''valor_car_input0]").type("1000")
+    cy.get("[name='valor_car_input0']").type("1000")
     cy.get("[name='add_car_button']").click()
     cy.get("[name='escolher_car_button0']").click()
     cy.get("[name='interar_valor_car_button1']").click()
